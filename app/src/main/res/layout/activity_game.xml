@@ -1,0 +1,618 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.adamschlough.connect4.GameActivity">
+
+    <LinearLayout
+        android:id="@+id/gameOverLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/holo_green_light"
+        android:orientation="vertical"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="10dp"
+        android:translationZ="2dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/gridLayout"
+        app:layout_constraintEnd_toStartOf="@+id/gridLayout"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/gridLayout"
+        app:layout_constraintTop_toBottomOf="@+id/gridLayout">
+
+        <TextView
+            android:id="@+id/winnnerText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/winner"
+            android:textSize="30dp" />
+
+        <Button
+            android:id="@+id/playAgainButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="playAgain"
+            android:text="@string/play_again" />
+    </LinearLayout>
+
+    <GridLayout
+        android:id="@+id/gridLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="0dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:foreground="@drawable/grid"
+        android:columnCount="7"
+        android:rowCount="6"
+        app:layout_constraintDimensionRatio="7:6"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/turnTextView">
+
+        <ImageView
+            android:id="@+id/redChip1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill_horizontal"
+            android:layout_rowWeight="1"
+            android:gravity="center"
+            android:contentDescription="@string/game_piece"
+            android:translationZ="-1dp"
+            android:onClick="redDropIn"
+            android:tag="0" />
+
+        <ImageView
+            android:id="@+id/redChip2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill_horizontal"
+            android:layout_rowWeight="1"
+            android:gravity="center"
+            android:contentDescription="@string/game_piece"
+            android:translationZ="-1dp"
+            android:onClick="redDropIn"
+            android:tag="1" />
+
+        <ImageView
+            android:id="@+id/redChip3"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill_horizontal"
+            android:layout_rowWeight="1"
+            android:gravity="center"
+            android:contentDescription="@string/game_piece"
+            android:translationZ="-1dp"
+            android:onClick="redDropIn"
+            android:tag="2" />
+
+        <ImageView
+            android:id="@+id/redChip4"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill_horizontal"
+            android:layout_rowWeight="1"
+            android:gravity="center"
+            android:contentDescription="@string/game_piece"
+            android:translationZ="-1dp"
+            android:onClick="redDropIn"
+            android:tag="3" />
+
+        <ImageView
+            android:id="@+id/redChip5"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill_horizontal"
+            android:layout_rowWeight="1"
+            android:gravity="center"
+            android:contentDescription="@string/game_piece"
+            android:translationZ="-1dp"
+            android:onClick="redDropIn"
+            android:tag="4" />
+
+        <ImageView
+            android:id="@+id/redChip6"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill_horizontal"
+            android:layout_rowWeight="1"
+            android:gravity="center"
+            android:contentDescription="@string/game_piece"
+            android:translationZ="-1dp"
+            android:onClick="redDropIn"
+            android:tag="5" />
+
+        <ImageView
+            android:id="@+id/redChip7"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill_horizontal"
+            android:layout_rowWeight="1"
+            android:gravity="center"
+            android:contentDescription="@string/game_piece"
+            android:translationZ="-1dp"
+            android:onClick="redDropIn"
+            android:tag="6" />
+
+        <ImageView
+            android:id="@+id/redChip12"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill_horizontal"
+            android:layout_rowWeight="1"
+            android:gravity="center"
+            android:contentDescription="@string/game_piece"
+            android:translationZ="-1dp"
+            android:onClick="redDropIn"
+            android:tag="7" />
+
+        <ImageView
+            android:id="@+id/redChip23"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill_horizontal"
+            android:layout_rowWeight="1"
+            android:gravity="center"
+            android:contentDescription="@string/game_piece"
+            android:translationZ="-1dp"
+            android:onClick="redDropIn"
+            android:tag="8" />
+
+        <ImageView
+            android:id="@+id/redChip34"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill_horizontal"
+            android:layout_rowWeight="1"
+            android:gravity="center"
+            android:contentDescription="@string/game_piece"
+            android:translationZ="-1dp"
+            android:onClick="redDropIn"
+            android:tag="9" />
+
+        <ImageView
+            android:id="@+id/redChip45"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill_horizontal"
+            android:layout_rowWeight="1"
+            android:gravity="center"
+            android:contentDescription="@string/game_piece"
+            android:translationZ="-1dp"
+            android:onClick="redDropIn"
+            android:tag="10" />
+
+        <ImageView
+            android:id="@+id/redChip56"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill_horizontal"
+            android:layout_rowWeight="1"
+            android:gravity="center"
+            android:contentDescription="@string/game_piece"
+            android:translationZ="-1dp"
+            android:onClick="redDropIn"
+            android:tag="11" />
+
+        <ImageView
+            android:id="@+id/redChip67"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill_horizontal"
+            android:layout_rowWeight="1"
+            android:gravity="center"
+            android:contentDescription="@string/game_piece"
+            android:translationZ="-1dp"
+            android:onClick="redDropIn"
+            android:tag="12" />
+
+        <ImageView
+            android:id="@+id/redChip78"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill_horizontal"
+            android:layout_rowWeight="1"
+            android:gravity="center"
+            android:contentDescription="@string/game_piece"
+            android:translationZ="-1dp"
+            android:onClick="redDropIn"
+            android:tag="13" />
+
+        <ImageView
+            android:id="@+id/redChip123"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill_horizontal"
+            android:layout_rowWeight="1"
+            android:gravity="center"
+            android:contentDescription="@string/game_piece"
+            android:translationZ="-1dp"
+            android:onClick="redDropIn"
+            android:tag="14" />
+
+        <ImageView
+            android:id="@+id/redChip234"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill_horizontal"
+            android:layout_rowWeight="1"
+            android:gravity="center"
+            android:contentDescription="@string/game_piece"
+            android:translationZ="-1dp"
+            android:onClick="redDropIn"
+            android:tag="15" />
+
+        <ImageView
+            android:id="@+id/redChip345"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill_horizontal"
+            android:layout_rowWeight="1"
+            android:gravity="center"
+            android:contentDescription="@string/game_piece"
+            android:translationZ="-1dp"
+            android:onClick="redDropIn"
+            android:tag="16" />
+
+        <ImageView
+            android:id="@+id/redChip456"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill_horizontal"
+            android:layout_rowWeight="1"
+            android:gravity="center"
+            android:contentDescription="@string/game_piece"
+            android:translationZ="-1dp"
+            android:onClick="redDropIn"
+            android:tag="17" />
+
+        <ImageView
+            android:id="@+id/redChip567"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill_horizontal"
+            android:layout_rowWeight="1"
+            android:gravity="center"
+            android:contentDescription="@string/game_piece"
+            android:translationZ="-1dp"
+            android:onClick="redDropIn"
+            android:tag="18" />
+
+        <ImageView
+            android:id="@+id/redChip678"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill_horizontal"
+            android:layout_rowWeight="1"
+            android:gravity="center"
+            android:contentDescription="@string/game_piece"
+            android:translationZ="-1dp"
+            android:onClick="redDropIn"
+            android:tag="19" />
+
+        <ImageView
+            android:id="@+id/redChip789"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill_horizontal"
+            android:layout_rowWeight="1"
+            android:gravity="center"
+            android:contentDescription="@string/game_piece"
+            android:translationZ="-1dp"
+            android:onClick="redDropIn"
+            android:tag="20" />
+
+        <ImageView
+            android:id="@+id/redChip120"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill_horizontal"
+            android:layout_rowWeight="1"
+            android:gravity="center"
+            android:contentDescription="@string/game_piece"
+            android:translationZ="-1dp"
+            android:onClick="redDropIn"
+            android:tag="21" />
+
+        <ImageView
+            android:id="@+id/redChip231"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill_horizontal"
+            android:layout_rowWeight="1"
+            android:gravity="center"
+            android:contentDescription="@string/game_piece"
+            android:translationZ="-1dp"
+            android:onClick="redDropIn"
+            android:tag="22" />
+
+        <ImageView
+            android:id="@+id/redChip342"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill_horizontal"
+            android:layout_rowWeight="1"
+            android:gravity="center"
+            android:contentDescription="@string/game_piece"
+            android:translationZ="-1dp"
+            android:onClick="redDropIn"
+            android:tag="23" />
+
+        <ImageView
+            android:id="@+id/redChip453"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill_horizontal"
+            android:layout_rowWeight="1"
+            android:gravity="center"
+            android:contentDescription="@string/game_piece"
+            android:translationZ="-1dp"
+            android:onClick="redDropIn"
+            android:tag="24" />
+
+        <ImageView
+            android:id="@+id/redChip564"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill_horizontal"
+            android:layout_rowWeight="1"
+            android:gravity="center"
+            android:contentDescription="@string/game_piece"
+            android:translationZ="-1dp"
+            android:onClick="redDropIn"
+            android:tag="25" />
+
+        <ImageView
+            android:id="@+id/redChip675"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill_horizontal"
+            android:layout_rowWeight="1"
+            android:gravity="center"
+            android:contentDescription="@string/game_piece"
+            android:translationZ="-1dp"
+            android:onClick="redDropIn"
+            android:tag="26" />
+
+        <ImageView
+            android:id="@+id/redChip786"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill_horizontal"
+            android:layout_rowWeight="1"
+            android:gravity="center"
+            android:contentDescription="@string/game_piece"
+            android:translationZ="-1dp"
+            android:onClick="redDropIn"
+            android:tag="27" />
+
+        <ImageView
+            android:id="@+id/redChip127"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill_horizontal"
+            android:layout_rowWeight="1"
+            android:gravity="center"
+            android:contentDescription="@string/game_piece"
+            android:translationZ="-1dp"
+            android:onClick="redDropIn"
+            android:tag="28" />
+
+        <ImageView
+            android:id="@+id/redChip238"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill_horizontal"
+            android:layout_rowWeight="1"
+            android:gravity="center"
+            android:contentDescription="@string/game_piece"
+            android:translationZ="-1dp"
+            android:onClick="redDropIn"
+            android:tag="29" />
+
+        <ImageView
+            android:id="@+id/redChip349"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill_horizontal"
+            android:layout_rowWeight="1"
+            android:gravity="center"
+            android:contentDescription="@string/game_piece"
+            android:translationZ="-1dp"
+            android:onClick="redDropIn"
+            android:tag="30" />
+
+        <ImageView
+            android:id="@+id/redChip450"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill_horizontal"
+            android:layout_rowWeight="1"
+            android:gravity="center"
+            android:contentDescription="@string/game_piece"
+            android:translationZ="-1dp"
+            android:onClick="redDropIn"
+            android:tag="31" />
+
+        <ImageView
+            android:id="@+id/redChip561"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill_horizontal"
+            android:layout_rowWeight="1"
+            android:gravity="center"
+            android:contentDescription="@string/game_piece"
+            android:translationZ="-1dp"
+            android:onClick="redDropIn"
+            android:tag="32" />
+
+        <ImageView
+            android:id="@+id/redChip672"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill_horizontal"
+            android:layout_rowWeight="1"
+            android:gravity="center"
+            android:contentDescription="@string/game_piece"
+            android:translationZ="-1dp"
+            android:onClick="redDropIn"
+            android:tag="33" />
+
+        <ImageView
+            android:id="@+id/redChip783"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill_horizontal"
+            android:layout_rowWeight="1"
+            android:gravity="center"
+            android:contentDescription="@string/game_piece"
+            android:translationZ="-1dp"
+            android:onClick="redDropIn"
+            android:tag="34" />
+
+        <ImageView
+            android:id="@+id/redChip124"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill_horizontal"
+            android:layout_rowWeight="1"
+            android:gravity="center"
+            android:contentDescription="@string/game_piece"
+            android:translationZ="-1dp"
+            android:onClick="redDropIn"
+            android:tag="35" />
+
+        <ImageView
+            android:id="@+id/redChip235"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill_horizontal"
+            android:layout_rowWeight="1"
+            android:gravity="center"
+            android:contentDescription="@string/game_piece"
+            android:translationZ="-1dp"
+            android:onClick="redDropIn"
+            android:tag="36" />
+
+        <ImageView
+            android:id="@+id/redChip346"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill_horizontal"
+            android:layout_rowWeight="1"
+            android:gravity="center"
+            android:contentDescription="@string/game_piece"
+            android:translationZ="-1dp"
+            android:onClick="redDropIn"
+            android:tag="37" />
+
+        <ImageView
+            android:id="@+id/redChip457"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill_horizontal"
+            android:layout_rowWeight="1"
+            android:gravity="center"
+            android:contentDescription="@string/game_piece"
+            android:translationZ="-1dp"
+            android:onClick="redDropIn"
+            android:tag="38" />
+
+        <ImageView
+            android:id="@+id/redChip568"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill_horizontal"
+            android:layout_rowWeight="1"
+            android:gravity="center"
+            android:contentDescription="@string/game_piece"
+            android:translationZ="-1dp"
+            android:onClick="redDropIn"
+            android:tag="39" />
+
+        <ImageView
+            android:id="@+id/redChip679"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill_horizontal"
+            android:layout_rowWeight="1"
+            android:gravity="center"
+            android:contentDescription="@string/game_piece"
+            android:translationZ="-1dp"
+            android:onClick="redDropIn"
+            android:tag="40" />
+
+        <ImageView
+            android:id="@+id/redChip780"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill_horizontal"
+            android:layout_rowWeight="1"
+            android:gravity="center"
+            android:contentDescription="@string/game_piece"
+            android:translationZ="-1dp"
+            android:onClick="redDropIn"
+            android:tag="41" />
+
+
+    </GridLayout>
+
+    <TextView
+        android:id="@+id/turnTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="55dp"
+        android:layout_marginTop="17dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/gridLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Connect 4</string>
+    <string name="play_button">Play</string>
+    <string name="game_piece">Game Piece</string>
+    <string name="winner">Winner!</string>
+    <string name="play_again">Play Again?</string>
+    <string name="red_turn">Red\'s Turn!</string>
+    <string name="blue_turn">Blue\'s Turn!</string>
+    <string name="red_goes_first">Red goes first</string>
+</resources>
