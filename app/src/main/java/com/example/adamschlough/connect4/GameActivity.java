@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class GameActivity extends AppCompatActivity {
 
@@ -50,104 +51,33 @@ public class GameActivity extends AppCompatActivity {
         return winningPostion;
     }
 
-    public void redDropIn(View view) {
+    public void tokenDrop(View view) {
 
         ImageView playToken = (ImageView) view;
 
-        TextView turnTextView = findViewById(R.id.turnTextView);
-
         int tappedPiece = Integer.parseInt(playToken.getTag().toString());
-
-        GridLayout gridLayout = findViewById(R.id.gridLayout);
 
         if (gameState[tappedPiece] == 2) {
 
             if (tappedPiece > 6){
-            gameState[tappedPiece - 7] = 2;
+                gameState[tappedPiece - 7] = 2;
             }
 
-            gameState[tappedPiece] = activePlayer;
+            setToken(playToken);
 
-            playToken.setTranslationY(-1000f);
-
-            if (activePlayer == 0) {
-
-                playToken.setImageResource(R.drawable.redpiece);
-                playToken.setColorFilter(Color.RED);
-
-                turnTextView.setBackgroundColor(Color.BLUE);
-                turnTextView.setTextColor(Color.WHITE);
-                turnTextView.setText(getString(R.string.blue_turn));
-
-                activePlayer = 1;
-
-            } else {
-
-                playToken.setImageResource(R.drawable.redpiece);
-                playToken.setColorFilter(Color.BLUE);
-
-                turnTextView.setTextColor(Color.BLACK);
-                turnTextView.setBackgroundColor(Color.RED);
-                turnTextView.setText(getString(R.string.red_turn));
-
-                activePlayer = 0;
-            }
-
-            playToken.animate().translationYBy(1000f).setDuration(300);
         }
 
-//        if (gameState[tappedPiece] == 3){
-//
-//            for (int i = 0; i < gridLayout.getRowCount(); i++){
-//                int changedPiece = tappedPiece + 7 * i;
-//
-//                ImageView playToken =
-//
-//                if (gameState[changedPiece] == 2){
-//
-//                    if (changedPiece > 6){
-//                        gameState[changedPiece - 7] = 2;
-//                    }
-//
-//                    gameState[changedPiece] = activePlayer;
-//
-//                    playToken.setTranslationY(-1000f);
-//
-//                    if (activePlayer == 0) {
-//
-//                        playToken.setImageResource(R.drawable.redpiece);
-//                        playToken.setColorFilter(Color.RED);
-//
-//                        turnTextView.setBackgroundColor(Color.BLUE);
-//                        turnTextView.setTextColor(Color.WHITE);
-//                        turnTextView.setText(getString(R.string.blue_turn));
-//
-//                        activePlayer = 1;
-//
-//                    } else {
-//
-//                        playToken.setImageResource(R.drawable.redpiece);
-//                        playToken.setColorFilter(Color.BLUE);
-//
-//                        turnTextView.setTextColor(Color.BLACK);
-//                        turnTextView.setBackgroundColor(Color.RED);
-//                        turnTextView.setText(getString(R.string.red_turn));
-//
-//                        activePlayer = 0;
-//                    }
-//
-//
-//                    playToken.animate().translationYBy(1000f).setDuration(300);
-//
-//
-//
-//                }
-//
-//            }
-//
-//        }
         checkWinState();
-        checkGameOver();
+//        secondPlayer(playToken);
+        if (checkGameOver()){
+            LinearLayout layout = findViewById(R.id.gameOverLayout);
+            TextView textView = findViewById(R.id.winnnerText);
+            textView.setTextColor(Color.WHITE);
+            layout.setVisibility(View.VISIBLE);
+            layout.setBackgroundColor(Color.BLACK);
+            for (int i = 0; i < gameState.length; i++) {
+                gameState[i] = 3;
+            }        }
     }
 
     @Override
@@ -226,8 +156,73 @@ public class GameActivity extends AppCompatActivity {
         return true;
     }
 
-    private void secondPlayer(){
+    private void secondPlayer(View view){
 
+        Random random = new Random();
+
+        ImageView playToken = (ImageView) view;
+
+        int tappedPiece = Integer.parseInt(playToken.getTag().toString());
+
+        for (int currentColumn = 0; currentColumn < 7; currentColumn++){
+            if ((tappedPiece + currentColumn) % 7 == 0){
+
+                int randColumn = random.nextInt(7) + 1;
+
+                if (gameState[tappedPiece + currentColumn - randColumn] == 2){
+
+
+
+                } else if (gameState[tappedPiece + currentColumn - randColumn] == 0 || gameState[tappedPiece + currentColumn - randColumn] == 1){
+
+                    if(tappedPiece + currentColumn - randColumn > 6){
+                        //Put token here
+                    }else{
+                        //Column is full get a new rand
+                    }
+
+                }
+            }
+        }
+
+    }
+
+    private void setToken(View view){
+
+        ImageView playToken = (ImageView) view;
+
+        TextView turnTextView = findViewById(R.id.turnTextView);
+
+        int tappedPiece = Integer.parseInt(playToken.getTag().toString());
+
+        gameState[tappedPiece] = activePlayer;
+
+        playToken.setTranslationY(-1000f);
+
+        if (activePlayer == 0) {
+
+            playToken.setImageResource(R.drawable.redpiece);
+            playToken.setColorFilter(Color.RED);
+
+            turnTextView.setBackgroundColor(Color.BLUE);
+            turnTextView.setTextColor(Color.WHITE);
+            turnTextView.setText(getString(R.string.blue_turn));
+
+            activePlayer = 1;
+
+        } else {
+
+            playToken.setImageResource(R.drawable.redpiece);
+            playToken.setColorFilter(Color.BLUE);
+
+            turnTextView.setTextColor(Color.BLACK);
+            turnTextView.setBackgroundColor(Color.RED);
+            turnTextView.setText(getString(R.string.red_turn));
+
+            activePlayer = 0;
+        }
+
+        playToken.animate().translationYBy(1000f).setDuration(300);
     }
 
 }

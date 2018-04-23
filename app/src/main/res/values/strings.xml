@@ -7,4 +7,5 @@
     <string name="red_turn">Red\'s Turn!</string>
     <string name="blue_turn">Blue\'s Turn!</string>
     <string name="red_goes_first">Red goes first</string>
+    <string name="game_over">Game Over!</string>
 </resources>
