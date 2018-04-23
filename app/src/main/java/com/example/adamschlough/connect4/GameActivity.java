@@ -171,7 +171,7 @@ public class GameActivity extends AppCompatActivity {
 
                 if (gameState[tappedPiece + currentColumn - randColumn] == 2){
 
-
+                    //Place token here
 
                 } else if (gameState[tappedPiece + currentColumn - randColumn] == 0 || gameState[tappedPiece + currentColumn - randColumn] == 1){
 
