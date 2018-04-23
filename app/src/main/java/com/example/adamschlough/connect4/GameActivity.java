@@ -67,8 +67,7 @@ public class GameActivity extends AppCompatActivity {
 
         }
 
-        checkWinState();
-//        secondPlayer(playToken);
+        secondPlayer(playToken);
         if (checkGameOver()){
             LinearLayout layout = findViewById(R.id.gameOverLayout);
             TextView textView = findViewById(R.id.winnnerText);
@@ -171,14 +170,28 @@ public class GameActivity extends AppCompatActivity {
 
                 if (gameState[tappedPiece + currentColumn - randColumn] == 2){
 
-                    //Place token here
+                    String position = "redChip" + (tappedPiece + currentColumn - randColumn);
+
+                    int resID = getResources().getIdentifier(position, "id", getPackageName());
+
+                    View secondToken = findViewById(resID);
+
+                    setToken(secondToken);
 
                 } else if (gameState[tappedPiece + currentColumn - randColumn] == 0 || gameState[tappedPiece + currentColumn - randColumn] == 1){
 
                     if(tappedPiece + currentColumn - randColumn > 6){
-                        //Put token here
+
+                        String position = "redChip" + (tappedPiece + currentColumn - randColumn - 7);
+
+                        int resID = getResources().getIdentifier(position, "id", getPackageName());
+
+                        View secondToken = findViewById(resID);
+
+                        setToken(secondToken);
+
                     }else{
-                        //Column is full get a new rand
+                        Log.i("Column Full", "Column Full");
                     }
 
                 }
@@ -223,6 +236,8 @@ public class GameActivity extends AppCompatActivity {
         }
 
         playToken.animate().translationYBy(1000f).setDuration(300);
+
+        checkWinState();
     }
 
 }
