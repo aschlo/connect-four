@@ -62,21 +62,22 @@ public class GameActivity extends AppCompatActivity {
             if (tappedPiece > 6){
                 gameState[tappedPiece - 7] = 2;
             }
-
             setToken(playToken);
-
+            if (checkGameOver()){
+                LinearLayout layout = findViewById(R.id.gameOverLayout);
+                TextView textView = findViewById(R.id.winnnerText);
+                textView.setTextColor(Color.WHITE);
+                layout.setVisibility(View.VISIBLE);
+                layout.setBackgroundColor(Color.BLACK);
+                for (int i = 0; i < gameState.length; i++) {
+                    gameState[i] = 3;
+                }
+            }
+            if(!checkWinState()){
+                secondPlayer();
+                checkWinState();
+            }
         }
-
-        secondPlayer(playToken);
-        if (checkGameOver()){
-            LinearLayout layout = findViewById(R.id.gameOverLayout);
-            TextView textView = findViewById(R.id.winnnerText);
-            textView.setTextColor(Color.WHITE);
-            layout.setVisibility(View.VISIBLE);
-            layout.setBackgroundColor(Color.BLACK);
-            for (int i = 0; i < gameState.length; i++) {
-                gameState[i] = 3;
-            }        }
     }
 
     @Override
@@ -116,7 +117,7 @@ public class GameActivity extends AppCompatActivity {
         }
     }
 
-    private void checkWinState(){
+    private boolean checkWinState(){
 
         for (int i = 0; i < winningPostion.size(); i++){
 
@@ -140,8 +141,10 @@ public class GameActivity extends AppCompatActivity {
                 for (int j = 0; j < gameState.length; j++) {
                     gameState[j] = 3;
                 }
+                return true;
             }
         }
+        return false;
     }
 
     private boolean checkGameOver(){
@@ -155,49 +158,27 @@ public class GameActivity extends AppCompatActivity {
         return true;
     }
 
-    private void secondPlayer(View view){
+    private void secondPlayer(){
 
         Random random = new Random();
 
-        ImageView playToken = (ImageView) view;
+        int position = random.nextInt(42);
 
-        int tappedPiece = Integer.parseInt(playToken.getTag().toString());
-
-        for (int currentColumn = 0; currentColumn < 7; currentColumn++){
-            if ((tappedPiece + currentColumn) % 7 == 0){
-
-                int randColumn = random.nextInt(7) + 1;
-
-                if (gameState[tappedPiece + currentColumn - randColumn] == 2){
-
-                    String position = "redChip" + (tappedPiece + currentColumn - randColumn);
-
-                    int resID = getResources().getIdentifier(position, "id", getPackageName());
-
-                    View secondToken = findViewById(resID);
-
-                    setToken(secondToken);
-
-                } else if (gameState[tappedPiece + currentColumn - randColumn] == 0 || gameState[tappedPiece + currentColumn - randColumn] == 1){
-
-                    if(tappedPiece + currentColumn - randColumn > 6){
-
-                        String position = "redChip" + (tappedPiece + currentColumn - randColumn - 7);
-
-                        int resID = getResources().getIdentifier(position, "id", getPackageName());
-
-                        View secondToken = findViewById(resID);
-
-                        setToken(secondToken);
-
-                    }else{
-                        Log.i("Column Full", "Column Full");
-                    }
-
-                }
-            }
+        while (gameState[position] != 2){
+            position = random.nextInt(42);
         }
 
+        Log.i("Random", "Setting piece at redChip" + position);
+
+        int resID = getResources().getIdentifier("redChip" + position, "id", getPackageName());
+
+        View secondToken = findViewById(resID);
+
+        setToken(secondToken);
+
+        if (position > 6){
+            gameState[position - 7] = 2;
+        }
     }
 
     private void setToken(View view){
@@ -237,7 +218,6 @@ public class GameActivity extends AppCompatActivity {
 
         playToken.animate().translationYBy(1000f).setDuration(300);
 
-        checkWinState();
     }
 
 }

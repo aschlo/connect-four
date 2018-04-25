@@ -45,6 +45,7 @@
         android:layout_marginLeft="12dp"
         android:layout_marginRight="12dp"
         android:foreground="@drawable/grid"
+        android:foregroundTint="@color/colorPrimaryDark"
         android:columnCount="7"
         android:rowCount="6"
         app:layout_constraintDimensionRatio="7:6"
