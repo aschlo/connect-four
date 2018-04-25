@@ -1,8 +1,10 @@
 package com.example.adamschlough.connect4;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.media.Image;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -23,6 +25,8 @@ public class GameActivity extends AppCompatActivity {
     int[] gameState = {3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,2,2,2,2,2,2,2}; //2 is active 3 is not active
 
     ArrayList<int[]> winningPostion = new ArrayList<>();
+
+    SharedPreferences preferences;
 
     public ArrayList<int[]> setWinningPositions(View view){
 
@@ -87,7 +91,11 @@ public class GameActivity extends AppCompatActivity {
         GridLayout gridLayout = findViewById(R.id.gridLayout);
         TextView turnTextView = findViewById(R.id.turnTextView);
         turnTextView.setText(getString(R.string.red_goes_first));
-        turnTextView.setBackgroundColor(Color.RED);
+        preferences = getPreferences(MODE_PRIVATE);
+        int firstColor = preferences != null ? preferences.getInt("Player One Color", R.color.colorRed) : 0;
+
+        int secondColor = preferences != null ? preferences.getInt("Player Two Color", R.color.colorBlue) : 0;
+        turnTextView.setBackgroundColor(firstColor);
         setWinningPositions(gridLayout);
     }
 
@@ -119,6 +127,11 @@ public class GameActivity extends AppCompatActivity {
 
     private boolean checkWinState(){
 
+        preferences = getPreferences(MODE_PRIVATE);
+        int firstColor = preferences != null ? preferences.getInt("Player One Color", R.color.colorRed) : 0;
+
+        int secondColor = preferences != null ? preferences.getInt("Player Two Color", R.color.colorBlue) : 0;
+
         for (int i = 0; i < winningPostion.size(); i++){
 
             int[] array = winningPostion.get(i);
@@ -132,10 +145,10 @@ public class GameActivity extends AppCompatActivity {
                 TextView textView = findViewById(R.id.winnnerText);
                 layout.setVisibility(View.VISIBLE);
                 if (gameState[array[0]] == 0){
-                    layout.setBackgroundColor(Color.RED);
+                    layout.setBackgroundColor(firstColor);
                     textView.setTextColor(Color.BLACK);
                 }else{
-                    layout.setBackgroundColor(Color.BLUE);
+                    layout.setBackgroundColor(secondColor);
                     textView.setTextColor(Color.WHITE);
                 }
                 for (int j = 0; j < gameState.length; j++) {
@@ -182,6 +195,10 @@ public class GameActivity extends AppCompatActivity {
     }
 
     private void setToken(View view){
+        preferences = getPreferences(MODE_PRIVATE);
+        int firstColor = preferences != null ? preferences.getInt("Player One Color", R.color.colorRed) : 0;
+
+        int secondColor = preferences != null ? preferences.getInt("Player Two Color", R.color.colorBlue) : 0;
 
         ImageView playToken = (ImageView) view;
 
@@ -196,9 +213,9 @@ public class GameActivity extends AppCompatActivity {
         if (activePlayer == 0) {
 
             playToken.setImageResource(R.drawable.redpiece);
-            playToken.setColorFilter(Color.RED);
+            playToken.setColorFilter(firstColor);
 
-            turnTextView.setBackgroundColor(Color.BLUE);
+            turnTextView.setBackgroundColor(secondColor);
             turnTextView.setTextColor(Color.WHITE);
             turnTextView.setText(getString(R.string.blue_turn));
 
@@ -207,10 +224,10 @@ public class GameActivity extends AppCompatActivity {
         } else {
 
             playToken.setImageResource(R.drawable.redpiece);
-            playToken.setColorFilter(Color.BLUE);
+            playToken.setColorFilter(secondColor);
 
             turnTextView.setTextColor(Color.BLACK);
-            turnTextView.setBackgroundColor(Color.RED);
+            turnTextView.setBackgroundColor(firstColor);
             turnTextView.setText(getString(R.string.red_turn));
 
             activePlayer = 0;
