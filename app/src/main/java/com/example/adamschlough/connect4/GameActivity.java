@@ -80,6 +80,16 @@ public class GameActivity extends AppCompatActivity {
             if(!checkWinState()){
                 secondPlayer();
                 checkWinState();
+                if (checkGameOver()){
+                    LinearLayout layout = findViewById(R.id.gameOverLayout);
+                    TextView textView = findViewById(R.id.winnnerText);
+                    textView.setTextColor(Color.WHITE);
+                    layout.setVisibility(View.VISIBLE);
+                    layout.setBackgroundColor(Color.BLACK);
+                    for (int i = 0; i < gameState.length; i++) {
+                        gameState[i] = 3;
+                    }
+                }
             }
         }
     }
@@ -89,13 +99,7 @@ public class GameActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
         GridLayout gridLayout = findViewById(R.id.gridLayout);
-        TextView turnTextView = findViewById(R.id.turnTextView);
-        turnTextView.setText(getString(R.string.red_goes_first));
-        preferences = getPreferences(MODE_PRIVATE);
-        int firstColor = preferences != null ? preferences.getInt("Player One Color", R.color.colorRed) : 0;
-
-        int secondColor = preferences != null ? preferences.getInt("Player Two Color", R.color.colorBlue) : 0;
-        turnTextView.setBackgroundColor(firstColor);
+        preferences = PreferenceManager.getDefaultSharedPreferences(this);
         setWinningPositions(gridLayout);
     }
 
@@ -126,11 +130,8 @@ public class GameActivity extends AppCompatActivity {
     }
 
     private boolean checkWinState(){
-
-        preferences = getPreferences(MODE_PRIVATE);
-        int firstColor = preferences != null ? preferences.getInt("Player One Color", R.color.colorRed) : 0;
-
-        int secondColor = preferences != null ? preferences.getInt("Player Two Color", R.color.colorBlue) : 0;
+        int firstColor = getFirstPlayerColor();
+        int secondColor = getSecondPlayerColor();
 
         for (int i = 0; i < winningPostion.size(); i++){
 
@@ -145,10 +146,10 @@ public class GameActivity extends AppCompatActivity {
                 TextView textView = findViewById(R.id.winnnerText);
                 layout.setVisibility(View.VISIBLE);
                 if (gameState[array[0]] == 0){
-                    layout.setBackgroundColor(firstColor);
+                    layout.setBackgroundColor(getResources().getColor(firstColor));
                     textView.setTextColor(Color.BLACK);
                 }else{
-                    layout.setBackgroundColor(secondColor);
+                    layout.setBackgroundColor(getResources().getColor(secondColor));
                     textView.setTextColor(Color.WHITE);
                 }
                 for (int j = 0; j < gameState.length; j++) {
@@ -195,10 +196,8 @@ public class GameActivity extends AppCompatActivity {
     }
 
     private void setToken(View view){
-        preferences = getPreferences(MODE_PRIVATE);
-        int firstColor = preferences != null ? preferences.getInt("Player One Color", R.color.colorRed) : 0;
-
-        int secondColor = preferences != null ? preferences.getInt("Player Two Color", R.color.colorBlue) : 0;
+        int firstColor = getFirstPlayerColor();
+        int secondColor = getSecondPlayerColor();
 
         ImageView playToken = (ImageView) view;
 
@@ -213,9 +212,9 @@ public class GameActivity extends AppCompatActivity {
         if (activePlayer == 0) {
 
             playToken.setImageResource(R.drawable.redpiece);
-            playToken.setColorFilter(firstColor);
+            playToken.setColorFilter(getResources().getColor(firstColor));
 
-            turnTextView.setBackgroundColor(secondColor);
+            turnTextView.setBackgroundColor(getResources().getColor(secondColor));
             turnTextView.setTextColor(Color.WHITE);
             turnTextView.setText(getString(R.string.blue_turn));
 
@@ -224,10 +223,10 @@ public class GameActivity extends AppCompatActivity {
         } else {
 
             playToken.setImageResource(R.drawable.redpiece);
-            playToken.setColorFilter(secondColor);
+            playToken.setColorFilter(getResources().getColor(secondColor));
 
             turnTextView.setTextColor(Color.BLACK);
-            turnTextView.setBackgroundColor(firstColor);
+            turnTextView.setBackgroundColor(getResources().getColor(firstColor));
             turnTextView.setText(getString(R.string.red_turn));
 
             activePlayer = 0;
@@ -237,4 +236,58 @@ public class GameActivity extends AppCompatActivity {
 
     }
 
+    public int getFirstPlayerColor() {
+        String firstColorPref = preferences.getString("Player One Color", "red");
+        int firstColor;
+
+        switch (firstColorPref){
+            case "red":
+                firstColor = R.color.colorRed;
+                break;
+            case "blue":
+                firstColor = R.color.colorBlue;
+                break;
+            case "yellow":
+                firstColor = R.color.colorYellow;
+                break;
+            case "green":
+                firstColor = R.color.colorGreen;
+                break;
+            case "purple":
+                firstColor = R.color.colorPurple;
+                break;
+            default:
+                firstColor = R.color.colorRed;
+
+        }
+
+        return firstColor;
+    }
+
+    public int getSecondPlayerColor(){
+        String secondColorPref = preferences.getString("Player Two Color", "blue");
+        int secondColor;
+
+        switch (secondColorPref){
+            case "red":
+                secondColor = R.color.colorRed;
+                break;
+            case "blue":
+                secondColor = R.color.colorBlue;
+                break;
+            case "yellow":
+                secondColor = R.color.colorYellow;
+                break;
+            case "green":
+                secondColor = R.color.colorGreen;
+                break;
+            case "purple":
+                secondColor = R.color.colorPurple;
+                break;
+            default:
+                secondColor = R.color.colorRed;
+
+        }
+        return secondColor;
+    }
 }
