@@ -4,8 +4,16 @@
     <string name="game_piece">Game Piece</string>
     <string name="winner">Winner!</string>
     <string name="play_again">Play Again?</string>
-    <string name="red_turn">Red\'s Turn!</string>
-    <string name="blue_turn">Blue\'s Turn!</string>
-    <string name="red_goes_first">Red goes first</string>
+    <string name="player_one_turn">Player One\'s turn!</string>
+    <string name="player_two_turn">Player Two\'s Turn!</string>
+    <string name="player_one_first">Player one goes first!</string>
     <string name="game_over">Game Over!</string>
+    <string name="player_one_color">Player One Color</string>
+    <string name="play_vs_computer">Play vs. Computer</string>
+    <string name="red">Red</string>
+    <string name="blue">Blue</string>
+    <string name="yellow">Yellow</string>
+    <string name="purple">Purple</string>
+    <string name="green">Green</string>
+    <string name="save">Save</string>
 </resources>

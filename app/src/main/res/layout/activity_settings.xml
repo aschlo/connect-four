@@ -6,17 +6,29 @@
     android:layout_height="match_parent"
     tools:context=".SettingsActivity">
 
+    <Switch
+        android:id="@+id/twoPlayerSwitch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/play_vs_computer"
+        android:padding="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:onClick="onSwitchClick"/>
+
     <RelativeLayout
         android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/twoPlayerSwitch"
+        >
 
     <TextView
         android:id="@+id/playerOne"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="5dp"
-        android:text="Player One Color"
+        android:text="@string/player_one_color"
         android:layout_centerHorizontal="true" />
     </RelativeLayout>
 
@@ -34,35 +46,35 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="onRadioButtonClicked"
-            android:text="Red" />
+            android:text="@string/red" />
 
         <RadioButton
             android:id="@+id/playerOneBlue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="onRadioButtonClicked"
-            android:text="Blue" />
+            android:text="@string/blue" />
 
         <RadioButton
             android:id="@+id/playerOneYellow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="onRadioButtonClicked"
-            android:text="Yellow" />
+            android:text="@string/yellow" />
 
         <RadioButton
             android:id="@+id/playerOneGreen"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="onRadioButtonClicked"
-            android:text="Green" />
+            android:text="@string/green" />
 
         <RadioButton
             android:id="@+id/playerOnePurple"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="onRadioButtonClicked"
-            android:text="Purple" />
+            android:text="@string/purple" />
     </RadioGroup>
 
     <RelativeLayout
@@ -95,35 +107,50 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="onRadioButtonClicked"
-            android:text="Red" />
+            android:text="@string/red" />
 
         <RadioButton
             android:id="@+id/playerTwoBlue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="onRadioButtonClicked"
-            android:text="Blue" />
+            android:text="@string/blue" />
 
         <RadioButton
             android:id="@+id/playerTwoYellow"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="onRadioButtonClicked"
-            android:text="Yellow" />
+            android:text="@string/yellow" />
 
         <RadioButton
             android:id="@+id/playerTwoGreen"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="onRadioButtonClicked"
-            android:text="Green" />
+            android:text="@string/green" />
 
         <RadioButton
             android:id="@+id/playerTwoPurple"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="onRadioButtonClicked"
-            android:text="Purple" />
+            android:text="@string/purple" />
     </RadioGroup>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/radioGroup2"
+        >
+    <Button
+        android:id="@+id/saveSettings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/save"
+        android:layout_centerHorizontal="true"
+        android:onClick="onSaveClick"
+        />
+    </RelativeLayout>
+
 
 </android.support.constraint.ConstraintLayout>

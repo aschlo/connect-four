@@ -8,7 +8,7 @@
 
     <LinearLayout
         android:id="@+id/gameOverLayout"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@android:color/holo_green_light"
         android:orientation="vertical"
@@ -16,24 +16,28 @@
         android:paddingVertical="10dp"
         android:translationZ="2dp"
         android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@+id/gridLayout"
         app:layout_constraintEnd_toStartOf="@+id/gridLayout"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/gridLayout"
-        app:layout_constraintTop_toBottomOf="@+id/gridLayout">
+        app:layout_constraintTop_toBottomOf="@+id/gridLayout"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:visibility="visible"
+        tools:ignore="NotSibling">
 
         <TextView
             android:id="@+id/winnnerText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/game_over"
-            android:textSize="30dp" />
+            android:gravity="center_horizontal"
+            android:textSize="30dp"
+            />
 
         <Button
             android:id="@+id/playAgainButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="playAgain"
+            android:onClick="onPlayAgainClick"
             android:text="@string/play_again" />
     </LinearLayout>
 
@@ -49,10 +53,10 @@
         android:columnCount="7"
         android:rowCount="6"
         app:layout_constraintDimensionRatio="7:6"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/turnTextView">
+        app:layout_constraintTop_toBottomOf="@+id/turnTextView"
+        app:layout_constraintBottom_toTopOf="@id/gameOverLayout">
 
         <ImageView
             android:id="@+id/redChip0"
@@ -64,7 +68,7 @@
             android:gravity="center"
             android:contentDescription="@string/game_piece"
             android:translationZ="-1dp"
-            android:onClick="tokenDrop"
+            android:onClick="onTokenClick"
             android:tag="0" />
 
         <ImageView
@@ -77,7 +81,7 @@
             android:gravity="center"
             android:contentDescription="@string/game_piece"
             android:translationZ="-1dp"
-            android:onClick="tokenDrop"
+            android:onClick="onTokenClick"
             android:tag="1" />
 
         <ImageView
@@ -90,7 +94,7 @@
             android:gravity="center"
             android:contentDescription="@string/game_piece"
             android:translationZ="-1dp"
-            android:onClick="tokenDrop"
+            android:onClick="onTokenClick"
             android:tag="2" />
 
         <ImageView
@@ -103,7 +107,7 @@
             android:gravity="center"
             android:contentDescription="@string/game_piece"
             android:translationZ="-1dp"
-            android:onClick="tokenDrop"
+            android:onClick="onTokenClick"
             android:tag="3" />
 
         <ImageView
@@ -116,7 +120,7 @@
             android:gravity="center"
             android:contentDescription="@string/game_piece"
             android:translationZ="-1dp"
-            android:onClick="tokenDrop"
+            android:onClick="onTokenClick"
             android:tag="4" />
 
         <ImageView
@@ -129,7 +133,7 @@
             android:gravity="center"
             android:contentDescription="@string/game_piece"
             android:translationZ="-1dp"
-            android:onClick="tokenDrop"
+            android:onClick="onTokenClick"
             android:tag="5" />
 
         <ImageView
@@ -142,7 +146,7 @@
             android:gravity="center"
             android:contentDescription="@string/game_piece"
             android:translationZ="-1dp"
-            android:onClick="tokenDrop"
+            android:onClick="onTokenClick"
             android:tag="6" />
 
         <ImageView
@@ -155,7 +159,7 @@
             android:gravity="center"
             android:contentDescription="@string/game_piece"
             android:translationZ="-1dp"
-            android:onClick="tokenDrop"
+            android:onClick="onTokenClick"
             android:tag="7" />
 
         <ImageView
@@ -168,7 +172,7 @@
             android:gravity="center"
             android:contentDescription="@string/game_piece"
             android:translationZ="-1dp"
-            android:onClick="tokenDrop"
+            android:onClick="onTokenClick"
             android:tag="8" />
 
         <ImageView
@@ -181,7 +185,7 @@
             android:gravity="center"
             android:contentDescription="@string/game_piece"
             android:translationZ="-1dp"
-            android:onClick="tokenDrop"
+            android:onClick="onTokenClick"
             android:tag="9" />
 
         <ImageView
@@ -194,7 +198,7 @@
             android:gravity="center"
             android:contentDescription="@string/game_piece"
             android:translationZ="-1dp"
-            android:onClick="tokenDrop"
+            android:onClick="onTokenClick"
             android:tag="10" />
 
         <ImageView
@@ -207,7 +211,7 @@
             android:gravity="center"
             android:contentDescription="@string/game_piece"
             android:translationZ="-1dp"
-            android:onClick="tokenDrop"
+            android:onClick="onTokenClick"
             android:tag="11" />
 
         <ImageView
@@ -220,7 +224,7 @@
             android:gravity="center"
             android:contentDescription="@string/game_piece"
             android:translationZ="-1dp"
-            android:onClick="tokenDrop"
+            android:onClick="onTokenClick"
             android:tag="12" />
 
         <ImageView
@@ -233,7 +237,7 @@
             android:gravity="center"
             android:contentDescription="@string/game_piece"
             android:translationZ="-1dp"
-            android:onClick="tokenDrop"
+            android:onClick="onTokenClick"
             android:tag="13" />
 
         <ImageView
@@ -246,7 +250,7 @@
             android:gravity="center"
             android:contentDescription="@string/game_piece"
             android:translationZ="-1dp"
-            android:onClick="tokenDrop"
+            android:onClick="onTokenClick"
             android:tag="14" />
 
         <ImageView
@@ -259,7 +263,7 @@
             android:gravity="center"
             android:contentDescription="@string/game_piece"
             android:translationZ="-1dp"
-            android:onClick="tokenDrop"
+            android:onClick="onTokenClick"
             android:tag="15" />
 
         <ImageView
@@ -272,7 +276,7 @@
             android:gravity="center"
             android:contentDescription="@string/game_piece"
             android:translationZ="-1dp"
-            android:onClick="tokenDrop"
+            android:onClick="onTokenClick"
             android:tag="16" />
 
         <ImageView
@@ -285,7 +289,7 @@
             android:gravity="center"
             android:contentDescription="@string/game_piece"
             android:translationZ="-1dp"
-            android:onClick="tokenDrop"
+            android:onClick="onTokenClick"
             android:tag="17" />
 
         <ImageView
@@ -298,7 +302,7 @@
             android:gravity="center"
             android:contentDescription="@string/game_piece"
             android:translationZ="-1dp"
-            android:onClick="tokenDrop"
+            android:onClick="onTokenClick"
             android:tag="18" />
 
         <ImageView
@@ -311,7 +315,7 @@
             android:gravity="center"
             android:contentDescription="@string/game_piece"
             android:translationZ="-1dp"
-            android:onClick="tokenDrop"
+            android:onClick="onTokenClick"
             android:tag="19" />
 
         <ImageView
@@ -324,7 +328,7 @@
             android:gravity="center"
             android:contentDescription="@string/game_piece"
             android:translationZ="-1dp"
-            android:onClick="tokenDrop"
+            android:onClick="onTokenClick"
             android:tag="20" />
 
         <ImageView
@@ -337,7 +341,7 @@
             android:gravity="center"
             android:contentDescription="@string/game_piece"
             android:translationZ="-1dp"
-            android:onClick="tokenDrop"
+            android:onClick="onTokenClick"
             android:tag="21" />
 
         <ImageView
@@ -350,7 +354,7 @@
             android:gravity="center"
             android:contentDescription="@string/game_piece"
             android:translationZ="-1dp"
-            android:onClick="tokenDrop"
+            android:onClick="onTokenClick"
             android:tag="22" />
 
         <ImageView
@@ -363,7 +367,7 @@
             android:gravity="center"
             android:contentDescription="@string/game_piece"
             android:translationZ="-1dp"
-            android:onClick="tokenDrop"
+            android:onClick="onTokenClick"
             android:tag="23" />
 
         <ImageView
@@ -376,7 +380,7 @@
             android:gravity="center"
             android:contentDescription="@string/game_piece"
             android:translationZ="-1dp"
-            android:onClick="tokenDrop"
+            android:onClick="onTokenClick"
             android:tag="24" />
 
         <ImageView
@@ -389,7 +393,7 @@
             android:gravity="center"
             android:contentDescription="@string/game_piece"
             android:translationZ="-1dp"
-            android:onClick="tokenDrop"
+            android:onClick="onTokenClick"
             android:tag="25" />
 
         <ImageView
@@ -402,7 +406,7 @@
             android:gravity="center"
             android:contentDescription="@string/game_piece"
             android:translationZ="-1dp"
-            android:onClick="tokenDrop"
+            android:onClick="onTokenClick"
             android:tag="26" />
 
         <ImageView
@@ -415,7 +419,7 @@
             android:gravity="center"
             android:contentDescription="@string/game_piece"
             android:translationZ="-1dp"
-            android:onClick="tokenDrop"
+            android:onClick="onTokenClick"
             android:tag="27" />
 
         <ImageView
@@ -428,7 +432,7 @@
             android:gravity="center"
             android:contentDescription="@string/game_piece"
             android:translationZ="-1dp"
-            android:onClick="tokenDrop"
+            android:onClick="onTokenClick"
             android:tag="28" />
 
         <ImageView
@@ -441,7 +445,7 @@
             android:gravity="center"
             android:contentDescription="@string/game_piece"
             android:translationZ="-1dp"
-            android:onClick="tokenDrop"
+            android:onClick="onTokenClick"
             android:tag="29" />
 
         <ImageView
@@ -454,7 +458,7 @@
             android:gravity="center"
             android:contentDescription="@string/game_piece"
             android:translationZ="-1dp"
-            android:onClick="tokenDrop"
+            android:onClick="onTokenClick"
             android:tag="30" />
 
         <ImageView
@@ -467,7 +471,7 @@
             android:gravity="center"
             android:contentDescription="@string/game_piece"
             android:translationZ="-1dp"
-            android:onClick="tokenDrop"
+            android:onClick="onTokenClick"
             android:tag="31" />
 
         <ImageView
@@ -480,7 +484,7 @@
             android:gravity="center"
             android:contentDescription="@string/game_piece"
             android:translationZ="-1dp"
-            android:onClick="tokenDrop"
+            android:onClick="onTokenClick"
             android:tag="32" />
 
         <ImageView
@@ -493,7 +497,7 @@
             android:gravity="center"
             android:contentDescription="@string/game_piece"
             android:translationZ="-1dp"
-            android:onClick="tokenDrop"
+            android:onClick="onTokenClick"
             android:tag="33" />
 
         <ImageView
@@ -506,7 +510,7 @@
             android:gravity="center"
             android:contentDescription="@string/game_piece"
             android:translationZ="-1dp"
-            android:onClick="tokenDrop"
+            android:onClick="onTokenClick"
             android:tag="34" />
 
         <ImageView
@@ -519,7 +523,7 @@
             android:gravity="center"
             android:contentDescription="@string/game_piece"
             android:translationZ="-1dp"
-            android:onClick="tokenDrop"
+            android:onClick="onTokenClick"
             android:tag="35" />
 
         <ImageView
@@ -532,7 +536,7 @@
             android:gravity="center"
             android:contentDescription="@string/game_piece"
             android:translationZ="-1dp"
-            android:onClick="tokenDrop"
+            android:onClick="onTokenClick"
             android:tag="36" />
 
         <ImageView
@@ -545,7 +549,7 @@
             android:gravity="center"
             android:contentDescription="@string/game_piece"
             android:translationZ="-1dp"
-            android:onClick="tokenDrop"
+            android:onClick="onTokenClick"
             android:tag="37" />
 
         <ImageView
@@ -558,7 +562,7 @@
             android:gravity="center"
             android:contentDescription="@string/game_piece"
             android:translationZ="-1dp"
-            android:onClick="tokenDrop"
+            android:onClick="onTokenClick"
             android:tag="38" />
 
         <ImageView
@@ -571,7 +575,7 @@
             android:gravity="center"
             android:contentDescription="@string/game_piece"
             android:translationZ="-1dp"
-            android:onClick="tokenDrop"
+            android:onClick="onTokenClick"
             android:tag="39" />
 
         <ImageView
@@ -584,7 +588,7 @@
             android:gravity="center"
             android:contentDescription="@string/game_piece"
             android:translationZ="-1dp"
-            android:onClick="tokenDrop"
+            android:onClick="onTokenClick"
             android:tag="40" />
 
         <ImageView
@@ -597,7 +601,7 @@
             android:gravity="center"
             android:contentDescription="@string/game_piece"
             android:translationZ="-1dp"
-            android:onClick="tokenDrop"
+            android:onClick="onTokenClick"
             android:tag="41" />
 
 
@@ -607,8 +611,7 @@
         android:id="@+id/turnTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="55dp"
-        android:layout_marginTop="17dp"
+        android:padding="20dp"
         android:text="TextView"
         app:layout_constraintBottom_toTopOf="@+id/gridLayout"
         app:layout_constraintEnd_toEndOf="parent"
