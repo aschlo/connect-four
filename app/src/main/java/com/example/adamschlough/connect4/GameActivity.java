@@ -26,9 +26,13 @@ public class GameActivity extends AppCompatActivity {
 
     SharedPreferences preferences;
 
+    Player firstPlayer = new Player();
+
+    Player secondPlayer = new Player();
+
     boolean thinking = false;
 
-    public ArrayList<int[]> setWinningPositions(View view){
+    public void setWinningPositions(View view){
 
         GridLayout gridLayout = (GridLayout) view;
 
@@ -52,7 +56,6 @@ public class GameActivity extends AppCompatActivity {
                 winningPosition.add(array);
             }
         }
-        return winningPosition;
     }
 
     @Override
@@ -64,7 +67,7 @@ public class GameActivity extends AppCompatActivity {
         TextView textView = findViewById(R.id.turnTextView);
 
         preferences = PreferenceManager.getDefaultSharedPreferences(this);
-        int firstPlayerColor = getFirstPlayerColor();
+        int firstPlayerColor = firstPlayer.getColor("Player One Color", this);
         textView.setVisibility(View.VISIBLE);
         textView.setText(R.string.player_one_first);
         textView.setTextColor(firstPlayerColor);
@@ -137,8 +140,8 @@ public class GameActivity extends AppCompatActivity {
     }
 
     private boolean checkWinState(){
-        int firstColor = getFirstPlayerColor();
-        int secondColor = getSecondPlayerColor();
+        int firstColor = firstPlayer.getColor("Player One Color", this);
+        int secondColor = secondPlayer.getColor("Player Two Color", this);
 
         LinearLayout layout = findViewById(R.id.gameOverLayout);
         TextView textView = findViewById(R.id.winnnerText);
@@ -241,8 +244,8 @@ public class GameActivity extends AppCompatActivity {
     }
 
     private void setToken(View view){
-        int firstColor = getFirstPlayerColor();
-        int secondColor = getSecondPlayerColor();
+        int firstColor = firstPlayer.getColor("Player One Color", this);
+        int secondColor = secondPlayer.getColor("Player Two Color", this);
 
         ImageView playToken = (ImageView) view;
 
@@ -297,58 +300,4 @@ public class GameActivity extends AppCompatActivity {
 
     }
 
-    public int getFirstPlayerColor() {
-        String firstColorPref = preferences.getString("Player One Color", "red");
-        int firstColor;
-
-        switch (firstColorPref){
-            case "red":
-                firstColor = R.color.colorRed;
-                break;
-            case "blue":
-                firstColor = R.color.colorBlue;
-                break;
-            case "yellow":
-                firstColor = R.color.colorYellow;
-                break;
-            case "green":
-                firstColor = R.color.colorGreen;
-                break;
-            case "purple":
-                firstColor = R.color.colorPurple;
-                break;
-            default:
-                firstColor = R.color.colorRed;
-
-        }
-
-        return firstColor;
-    }
-
-    public int getSecondPlayerColor(){
-        String secondColorPref = preferences.getString("Player Two Color", "blue");
-        int secondColor;
-
-        switch (secondColorPref){
-            case "red":
-                secondColor = R.color.colorRed;
-                break;
-            case "blue":
-                secondColor = R.color.colorBlue;
-                break;
-            case "yellow":
-                secondColor = R.color.colorYellow;
-                break;
-            case "green":
-                secondColor = R.color.colorGreen;
-                break;
-            case "purple":
-                secondColor = R.color.colorPurple;
-                break;
-            default:
-                secondColor = R.color.colorRed;
-
-        }
-        return secondColor;
-    }
 }
