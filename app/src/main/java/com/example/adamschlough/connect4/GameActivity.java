@@ -26,6 +26,8 @@ public class GameActivity extends AppCompatActivity {
 
     SharedPreferences preferences;
 
+    boolean thinking = false;
+
     public ArrayList<int[]> setWinningPositions(View view){
 
         GridLayout gridLayout = (GridLayout) view;
@@ -75,25 +77,29 @@ public class GameActivity extends AppCompatActivity {
 
         int tappedPiece = Integer.parseInt(playToken.getTag().toString());
 
-        if (gameState[tappedPiece] == 2) {
+        if (gameState[tappedPiece] == 2 && !thinking) {
 
             if (tappedPiece > 6){
                 gameState[tappedPiece - 7] = 2;
             }
+
             setToken(playToken);
+
             if (checkGameOver()){
                 showGameOver();
             }
+
             if (preferences.getBoolean("Two Player", false)){
+                thinking = true;
                 if(!checkWinState()){
                     secondPlayer();
                     checkWinState();
+
                     if (checkGameOver()){
                         showGameOver();
                     }
                 }
-            }
-            else {
+            } else {
                 checkWinState();
                 checkGameOver();
             }
@@ -126,6 +132,8 @@ public class GameActivity extends AppCompatActivity {
             ((ImageView) gridLayout.getChildAt(i)).setImageResource(0);
 
         }
+
+        thinking = false;
     }
 
     private boolean checkWinState(){
@@ -222,6 +230,8 @@ public class GameActivity extends AppCompatActivity {
         handler.postDelayed(new Runnable() {
             public void run() {
                 setToken(secondToken);
+                thinking = false;
+                checkWinState();
             }
         }, 1000);
 
