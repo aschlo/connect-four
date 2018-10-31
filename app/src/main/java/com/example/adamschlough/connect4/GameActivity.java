@@ -13,10 +13,15 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
+
 import java.util.ArrayList;
 import java.util.Random;
 
 public class GameActivity extends AppCompatActivity {
+
+    private InterstitialAd mInterstitialAd;
 
     int activePlayer = 0; //0 = red, 1 = blue
 
@@ -61,6 +66,10 @@ public class GameActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        mInterstitialAd = new InterstitialAd(this);
+        mInterstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
+        mInterstitialAd.loadAd(new AdRequest.Builder().build());
 
         setContentView(R.layout.activity_game);
         GridLayout gridLayout = findViewById(R.id.gridLayout);
@@ -110,6 +119,7 @@ public class GameActivity extends AppCompatActivity {
     }
 
     public void onPlayAgainClick(View view) {
+        mInterstitialAd.loadAd(new AdRequest.Builder().build());
 
         LinearLayout layout = findViewById(R.id.gameOverLayout);
         GridLayout gridLayout = findViewById(R.id.gridLayout);
@@ -156,6 +166,12 @@ public class GameActivity extends AppCompatActivity {
                     gameState[array[2]] == gameState[array[3]] &&
                     gameState[array[0]] != 2 && gameState[array[0]] != 3){
 
+                if (mInterstitialAd.isLoaded()) {
+                    mInterstitialAd.show();
+                } else {
+                    Log.d("TAG", "The interstitial wasn't loaded yet.");
+                }
+
                 layout.setVisibility(View.VISIBLE);
                 turnText.setVisibility(View.INVISIBLE);
                 turnText.setText(R.string.player_one_first);
@@ -184,6 +200,11 @@ public class GameActivity extends AppCompatActivity {
             }
         }
         Log.i("GameOver", "Game Over");
+        if (mInterstitialAd.isLoaded()) {
+            mInterstitialAd.show();
+        } else {
+            Log.d("TAG", "The interstitial wasn't loaded yet.");
+        }
         return true;
     }
 

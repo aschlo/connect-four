@@ -11,9 +11,15 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
+        debug{
+            resValue 'string', "Admob_ApiKey", Admob_ApiKey
+            resValue 'string', "Admob_AppId", Admob_AppId
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            resValue 'string', "Admob_ApiKey", Admob_ApiKey
+            resValue 'string', "Admob_AppId", Admob_AppId
         }
     }
 }
@@ -26,4 +32,8 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
     implementation 'com.android.support:recyclerview-v7:26.1.0'
+    implementation 'com.google.firebase:firebase-core:16.0.4'
+    implementation 'com.google.firebase:firebase-ads:17.0.0'
 }
+
+apply plugin: 'com.google.gms.google-services'

@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "230659068266",
+    "firebase_url": "https://connect-4-5abb7.firebaseio.com",
+    "project_id": "connect-4-5abb7",
+    "storage_bucket": "connect-4-5abb7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:230659068266:android:fd8c416602e0e9be",
+        "android_client_info": {
+          "package_name": "com.example.adamschlough.connect4"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "230659068266-aivl7r39cs9kenicin7sk6083oqgtjj7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCQzXVa6PLtpfGfF1v0R_0E-NOx4l9EMO4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
