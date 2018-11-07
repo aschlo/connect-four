@@ -18,13 +18,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         MobileAds.initialize(this, getResources().getString(R.string.Admob_AppId));
 
-        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
-        SharedPreferences.Editor editor = preferences.edit();
         final Button buttonPlay = findViewById(R.id.buttonPlay);
         final Button buttonSettings = findViewById(R.id.buttonSettings);
         buttonPlay.setOnClickListener(this);
         buttonSettings.setOnClickListener(this);
-        editor.putString("Player Two Color", "blue").apply();
     }
 
     @Override

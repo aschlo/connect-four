@@ -33,9 +33,9 @@ public class GameActivity extends AppCompatActivity {
 
     SharedPreferences preferences;
 
-    Player firstPlayer = new Player();
+    Player mFirstPlayer = new Player();
 
-    Player secondPlayer = new Player();
+    Player mSecondPlayer = new Player();
 
     boolean thinking = false;
 
@@ -78,7 +78,8 @@ public class GameActivity extends AppCompatActivity {
         TextView textView = findViewById(R.id.turnTextView);
 
         preferences = PreferenceManager.getDefaultSharedPreferences(this);
-        int firstPlayerColor = firstPlayer.getColor("Player One Color", this);
+        int firstPlayerColor = mFirstPlayer.getColor("Player One Color", this);
+        int secondPlayerColor = mSecondPlayer.getColor("Player Two Color", this);
         textView.setVisibility(View.VISIBLE);
         textView.setText(R.string.player_one_first);
         textView.setTextColor(firstPlayerColor);
@@ -152,8 +153,8 @@ public class GameActivity extends AppCompatActivity {
     }
 
     private boolean checkWinState(){
-        int firstColor = firstPlayer.getColor("Player One Color", this);
-        int secondColor = secondPlayer.getColor("Player Two Color", this);
+        int firstColor = mFirstPlayer.getColor("Player One Color", this);
+        int secondColor = mSecondPlayer.getColor("Player Two Color", this);
 
         LinearLayout layout = findViewById(R.id.gameOverLayout);
         TextView textView = findViewById(R.id.winnnerText);
@@ -230,7 +231,7 @@ public class GameActivity extends AppCompatActivity {
             int secondPlayerTokens = Collections.frequency(positionGameStates, 1);
 
             if (positionGameStates.contains(2)) {
-                if (firstPlayerTokens == 2 || secondPlayerTokens == 2) {
+                if (firstPlayerTokens == 2 && secondPlayerTokens == 0) {
                     position = array[positionGameStates.indexOf(2)];
                 } else if (firstPlayerTokens == 3 || secondPlayerTokens == 3) {
                     position = array[positionGameStates.indexOf(2)];
@@ -264,8 +265,8 @@ public class GameActivity extends AppCompatActivity {
     }
 
     private void setToken(View view){
-        int firstColor = firstPlayer.getColor("Player One Color", this);
-        int secondColor = secondPlayer.getColor("Player Two Color", this);
+        int firstColor = mFirstPlayer.getColor("Player One Color", this);
+        int secondColor = mSecondPlayer.getColor("Player Two Color", this);
 
         ImageView playToken = (ImageView) view;
 

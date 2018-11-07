@@ -4,11 +4,10 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
-public class Player {
-    private SharedPreferences preferences;
+class Player {
 
-    public int getColor(String player, Context context) {
-        preferences = PreferenceManager.getDefaultSharedPreferences(context);
+    int getColor(String player, Context context) {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
         String colorPref = preferences.getString(player, "red");
         int color;
 
