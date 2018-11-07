@@ -17,13 +17,15 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Random;
 
 public class GameActivity extends AppCompatActivity {
 
     private InterstitialAd mInterstitialAd;
 
-    int activePlayer = 0; //0 = red, 1 = blue
+    int activePlayer = 0; //0 = first player, 1 = second Player
 
     int[] gameState = {3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,2,2,2,2,2,2,2}; //2 is active 3 is not active
 
@@ -217,26 +219,23 @@ public class GameActivity extends AppCompatActivity {
         for (int i = 0; i < winningPosition.size(); i++){
             int[] array = winningPosition.get(i);
 
-            if (gameState[array[0]] == gameState[array[1]] &&
-                    gameState[array[1]] == gameState[array[2]]&&
-                    gameState[array[0]] != 2 && gameState[array[0]] != 3 &&
-                    gameState[array[3]] == 2) {
-                position = array[3];
-            } else if (gameState[array[0]] == gameState[array[1]] &&
-                    gameState[array[1]] == gameState[array[3]]&&
-                    gameState[array[0]] != 2 && gameState[array[0]] != 3 &&
-                    gameState[array[2]] == 2){
-                position = array[2];
-            } else if (gameState[array[0]] == gameState[array[2]] &&
-                    gameState[array[2]] == gameState[array[3]]&&
-                    gameState[array[0]] != 2 && gameState[array[0]] != 3 &&
-                    gameState[array[1]] == 2){
-                position = array[1];
-            } else if (gameState[array[1]] == gameState[array[2]] &&
-                    gameState[array[2]] == gameState[array[3]]&&
-                    gameState[array[1]] != 2 && gameState[array[1]] != 3 &&
-                    gameState[array[0]] == 2){
-                position = array[0];
+            ArrayList<Integer> positionGameStates = new ArrayList<>();
+
+            positionGameStates.add(gameState[array[0]]);
+            positionGameStates.add(gameState[array[1]]);
+            positionGameStates.add(gameState[array[2]]);
+            positionGameStates.add(gameState[array[3]]);
+
+            int firstPlayerTokens = Collections.frequency(positionGameStates, 0);
+            int secondPlayerTokens = Collections.frequency(positionGameStates, 1);
+
+            if (positionGameStates.contains(2)) {
+                if (firstPlayerTokens == 2 || secondPlayerTokens == 2) {
+                    position = array[positionGameStates.indexOf(2)];
+                } else if (firstPlayerTokens == 3 || secondPlayerTokens == 3) {
+                    position = array[positionGameStates.indexOf(2)];
+                    break;
+                }
             }
         }
 
