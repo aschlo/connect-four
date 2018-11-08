@@ -77,7 +77,7 @@ public class GameActivity extends AppCompatActivity {
         TextView textView = findViewById(R.id.turnTextView);
 
         preferences = PreferenceManager.getDefaultSharedPreferences(this);
-        int firstPlayerColor = mFirstPlayer.getPlayerOneColor("Player One Color", this);
+        int firstPlayerColor = mFirstPlayer.getColor("Player One Color", this);
         textView.setVisibility(View.VISIBLE);
         textView.setText(R.string.player_one_first);
         textView.setTextColor(firstPlayerColor);
@@ -146,8 +146,8 @@ public class GameActivity extends AppCompatActivity {
     }
 
     private boolean checkWinState(){
-        int firstColor = mFirstPlayer.getPlayerOneColor("Player One Color", this);
-        int secondColor = mSecondPlayer.getPlayerTwoColor("Player Two Color", this);
+        int firstColor = mFirstPlayer.getColor("Player One Color", this);
+        int secondColor = mSecondPlayer.getColor("Player Two Color", this);
 
         LinearLayout layout = findViewById(R.id.gameOverLayout);
         TextView textView = findViewById(R.id.winnnerText);
@@ -264,8 +264,8 @@ public class GameActivity extends AppCompatActivity {
     }
 
     private void setToken(View view){
-        int firstColor = mFirstPlayer.getPlayerOneColor("Player One Color", this);
-        int secondColor = mSecondPlayer.getPlayerTwoColor("Player Two Color", this);
+        int firstColor = mFirstPlayer.getColor("Player One Color", this);
+        int secondColor = mSecondPlayer.getColor("Player Two Color", this);
 
         ImageView playToken = (ImageView) view;
 
