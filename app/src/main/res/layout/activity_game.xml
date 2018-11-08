@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/autumncolorsautumncoloursdawn1544880"
     tools:context="com.example.adamschlough.connect4.GameActivity">
 
     <LinearLayout
@@ -16,22 +17,21 @@
         android:paddingVertical="10dp"
         android:translationZ="2dp"
         android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/gridLayout"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/gridLayout"
         app:layout_constraintTop_toBottomOf="@+id/gridLayout"
-        app:layout_constraintBottom_toBottomOf="parent"
-        tools:visibility="visible"
-        tools:ignore="NotSibling">
+        tools:ignore="NotSibling"
+        tools:visibility="visible">
 
         <TextView
             android:id="@+id/winnnerText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/game_over"
             android:gravity="center_horizontal"
-            android:textSize="30dp"
-            />
+            android:text="@string/game_over"
+            android:textSize="30dp" />
 
         <Button
             android:id="@+id/playAgainButton"
@@ -45,564 +45,564 @@
         android:id="@+id/gridLayout"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="0dp"
         android:layout_marginLeft="12dp"
         android:layout_marginRight="12dp"
+        android:layout_marginBottom="0dp"
+        android:columnCount="7"
         android:foreground="@drawable/grid"
         android:foregroundTint="@color/colorPrimaryDark"
-        android:columnCount="7"
         android:rowCount="6"
+        app:layout_constraintBottom_toTopOf="@id/gameOverLayout"
         app:layout_constraintDimensionRatio="7:6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/turnTextView"
-        app:layout_constraintBottom_toTopOf="@id/gameOverLayout">
+        app:layout_constraintTop_toBottomOf="@+id/turnTextView">
 
         <ImageView
             android:id="@+id/redChip0"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:layout_gravity="fill_horizontal"
-            android:layout_rowWeight="1"
-            android:gravity="center"
             android:contentDescription="@string/game_piece"
-            android:translationZ="-1dp"
+            android:gravity="center"
             android:onClick="onTokenClick"
-            android:tag="0" />
+            android:tag="0"
+            android:translationZ="-1dp" />
 
         <ImageView
             android:id="@+id/redChip1"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:layout_gravity="fill_horizontal"
-            android:layout_rowWeight="1"
-            android:gravity="center"
             android:contentDescription="@string/game_piece"
-            android:translationZ="-1dp"
+            android:gravity="center"
             android:onClick="onTokenClick"
-            android:tag="1" />
+            android:tag="1"
+            android:translationZ="-1dp" />
 
         <ImageView
             android:id="@+id/redChip2"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:layout_gravity="fill_horizontal"
-            android:layout_rowWeight="1"
-            android:gravity="center"
             android:contentDescription="@string/game_piece"
-            android:translationZ="-1dp"
+            android:gravity="center"
             android:onClick="onTokenClick"
-            android:tag="2" />
+            android:tag="2"
+            android:translationZ="-1dp" />
 
         <ImageView
             android:id="@+id/redChip3"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:layout_gravity="fill_horizontal"
-            android:layout_rowWeight="1"
-            android:gravity="center"
             android:contentDescription="@string/game_piece"
-            android:translationZ="-1dp"
+            android:gravity="center"
             android:onClick="onTokenClick"
-            android:tag="3" />
+            android:tag="3"
+            android:translationZ="-1dp" />
 
         <ImageView
             android:id="@+id/redChip4"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:layout_gravity="fill_horizontal"
-            android:layout_rowWeight="1"
-            android:gravity="center"
             android:contentDescription="@string/game_piece"
-            android:translationZ="-1dp"
+            android:gravity="center"
             android:onClick="onTokenClick"
-            android:tag="4" />
+            android:tag="4"
+            android:translationZ="-1dp" />
 
         <ImageView
             android:id="@+id/redChip5"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:layout_gravity="fill_horizontal"
-            android:layout_rowWeight="1"
-            android:gravity="center"
             android:contentDescription="@string/game_piece"
-            android:translationZ="-1dp"
+            android:gravity="center"
             android:onClick="onTokenClick"
-            android:tag="5" />
+            android:tag="5"
+            android:translationZ="-1dp" />
 
         <ImageView
             android:id="@+id/redChip6"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:layout_gravity="fill_horizontal"
-            android:layout_rowWeight="1"
-            android:gravity="center"
             android:contentDescription="@string/game_piece"
-            android:translationZ="-1dp"
+            android:gravity="center"
             android:onClick="onTokenClick"
-            android:tag="6" />
+            android:tag="6"
+            android:translationZ="-1dp" />
 
         <ImageView
             android:id="@+id/redChip7"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:layout_gravity="fill_horizontal"
-            android:layout_rowWeight="1"
-            android:gravity="center"
             android:contentDescription="@string/game_piece"
-            android:translationZ="-1dp"
+            android:gravity="center"
             android:onClick="onTokenClick"
-            android:tag="7" />
+            android:tag="7"
+            android:translationZ="-1dp" />
 
         <ImageView
             android:id="@+id/redChip8"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:layout_gravity="fill_horizontal"
-            android:layout_rowWeight="1"
-            android:gravity="center"
             android:contentDescription="@string/game_piece"
-            android:translationZ="-1dp"
+            android:gravity="center"
             android:onClick="onTokenClick"
-            android:tag="8" />
+            android:tag="8"
+            android:translationZ="-1dp" />
 
         <ImageView
             android:id="@+id/redChip9"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:layout_gravity="fill_horizontal"
-            android:layout_rowWeight="1"
-            android:gravity="center"
             android:contentDescription="@string/game_piece"
-            android:translationZ="-1dp"
+            android:gravity="center"
             android:onClick="onTokenClick"
-            android:tag="9" />
+            android:tag="9"
+            android:translationZ="-1dp" />
 
         <ImageView
             android:id="@+id/redChip10"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:layout_gravity="fill_horizontal"
-            android:layout_rowWeight="1"
-            android:gravity="center"
             android:contentDescription="@string/game_piece"
-            android:translationZ="-1dp"
+            android:gravity="center"
             android:onClick="onTokenClick"
-            android:tag="10" />
+            android:tag="10"
+            android:translationZ="-1dp" />
 
         <ImageView
             android:id="@+id/redChip11"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:layout_gravity="fill_horizontal"
-            android:layout_rowWeight="1"
-            android:gravity="center"
             android:contentDescription="@string/game_piece"
-            android:translationZ="-1dp"
+            android:gravity="center"
             android:onClick="onTokenClick"
-            android:tag="11" />
+            android:tag="11"
+            android:translationZ="-1dp" />
 
         <ImageView
             android:id="@+id/redChip12"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:layout_gravity="fill_horizontal"
-            android:layout_rowWeight="1"
-            android:gravity="center"
             android:contentDescription="@string/game_piece"
-            android:translationZ="-1dp"
+            android:gravity="center"
             android:onClick="onTokenClick"
-            android:tag="12" />
+            android:tag="12"
+            android:translationZ="-1dp" />
 
         <ImageView
             android:id="@+id/redChip13"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:layout_gravity="fill_horizontal"
-            android:layout_rowWeight="1"
-            android:gravity="center"
             android:contentDescription="@string/game_piece"
-            android:translationZ="-1dp"
+            android:gravity="center"
             android:onClick="onTokenClick"
-            android:tag="13" />
+            android:tag="13"
+            android:translationZ="-1dp" />
 
         <ImageView
             android:id="@+id/redChip14"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:layout_gravity="fill_horizontal"
-            android:layout_rowWeight="1"
-            android:gravity="center"
             android:contentDescription="@string/game_piece"
-            android:translationZ="-1dp"
+            android:gravity="center"
             android:onClick="onTokenClick"
-            android:tag="14" />
+            android:tag="14"
+            android:translationZ="-1dp" />
 
         <ImageView
             android:id="@+id/redChip15"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:layout_gravity="fill_horizontal"
-            android:layout_rowWeight="1"
-            android:gravity="center"
             android:contentDescription="@string/game_piece"
-            android:translationZ="-1dp"
+            android:gravity="center"
             android:onClick="onTokenClick"
-            android:tag="15" />
+            android:tag="15"
+            android:translationZ="-1dp" />
 
         <ImageView
             android:id="@+id/redChip16"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:layout_gravity="fill_horizontal"
-            android:layout_rowWeight="1"
-            android:gravity="center"
             android:contentDescription="@string/game_piece"
-            android:translationZ="-1dp"
+            android:gravity="center"
             android:onClick="onTokenClick"
-            android:tag="16" />
+            android:tag="16"
+            android:translationZ="-1dp" />
 
         <ImageView
             android:id="@+id/redChip17"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:layout_gravity="fill_horizontal"
-            android:layout_rowWeight="1"
-            android:gravity="center"
             android:contentDescription="@string/game_piece"
-            android:translationZ="-1dp"
+            android:gravity="center"
             android:onClick="onTokenClick"
-            android:tag="17" />
+            android:tag="17"
+            android:translationZ="-1dp" />
 
         <ImageView
             android:id="@+id/redChip18"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:layout_gravity="fill_horizontal"
-            android:layout_rowWeight="1"
-            android:gravity="center"
             android:contentDescription="@string/game_piece"
-            android:translationZ="-1dp"
+            android:gravity="center"
             android:onClick="onTokenClick"
-            android:tag="18" />
+            android:tag="18"
+            android:translationZ="-1dp" />
 
         <ImageView
             android:id="@+id/redChip19"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:layout_gravity="fill_horizontal"
-            android:layout_rowWeight="1"
-            android:gravity="center"
             android:contentDescription="@string/game_piece"
-            android:translationZ="-1dp"
+            android:gravity="center"
             android:onClick="onTokenClick"
-            android:tag="19" />
+            android:tag="19"
+            android:translationZ="-1dp" />
 
         <ImageView
             android:id="@+id/redChip20"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:layout_gravity="fill_horizontal"
-            android:layout_rowWeight="1"
-            android:gravity="center"
             android:contentDescription="@string/game_piece"
-            android:translationZ="-1dp"
+            android:gravity="center"
             android:onClick="onTokenClick"
-            android:tag="20" />
+            android:tag="20"
+            android:translationZ="-1dp" />
 
         <ImageView
             android:id="@+id/redChip21"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:layout_gravity="fill_horizontal"
-            android:layout_rowWeight="1"
-            android:gravity="center"
             android:contentDescription="@string/game_piece"
-            android:translationZ="-1dp"
+            android:gravity="center"
             android:onClick="onTokenClick"
-            android:tag="21" />
+            android:tag="21"
+            android:translationZ="-1dp" />
 
         <ImageView
             android:id="@+id/redChip22"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:layout_gravity="fill_horizontal"
-            android:layout_rowWeight="1"
-            android:gravity="center"
             android:contentDescription="@string/game_piece"
-            android:translationZ="-1dp"
+            android:gravity="center"
             android:onClick="onTokenClick"
-            android:tag="22" />
+            android:tag="22"
+            android:translationZ="-1dp" />
 
         <ImageView
             android:id="@+id/redChip23"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:layout_gravity="fill_horizontal"
-            android:layout_rowWeight="1"
-            android:gravity="center"
             android:contentDescription="@string/game_piece"
-            android:translationZ="-1dp"
+            android:gravity="center"
             android:onClick="onTokenClick"
-            android:tag="23" />
+            android:tag="23"
+            android:translationZ="-1dp" />
 
         <ImageView
             android:id="@+id/redChip24"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:layout_gravity="fill_horizontal"
-            android:layout_rowWeight="1"
-            android:gravity="center"
             android:contentDescription="@string/game_piece"
-            android:translationZ="-1dp"
+            android:gravity="center"
             android:onClick="onTokenClick"
-            android:tag="24" />
+            android:tag="24"
+            android:translationZ="-1dp" />
 
         <ImageView
             android:id="@+id/redChip25"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:layout_gravity="fill_horizontal"
-            android:layout_rowWeight="1"
-            android:gravity="center"
             android:contentDescription="@string/game_piece"
-            android:translationZ="-1dp"
+            android:gravity="center"
             android:onClick="onTokenClick"
-            android:tag="25" />
+            android:tag="25"
+            android:translationZ="-1dp" />
 
         <ImageView
             android:id="@+id/redChip26"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:layout_gravity="fill_horizontal"
-            android:layout_rowWeight="1"
-            android:gravity="center"
             android:contentDescription="@string/game_piece"
-            android:translationZ="-1dp"
+            android:gravity="center"
             android:onClick="onTokenClick"
-            android:tag="26" />
+            android:tag="26"
+            android:translationZ="-1dp" />
 
         <ImageView
             android:id="@+id/redChip27"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:layout_gravity="fill_horizontal"
-            android:layout_rowWeight="1"
-            android:gravity="center"
             android:contentDescription="@string/game_piece"
-            android:translationZ="-1dp"
+            android:gravity="center"
             android:onClick="onTokenClick"
-            android:tag="27" />
+            android:tag="27"
+            android:translationZ="-1dp" />
 
         <ImageView
             android:id="@+id/redChip28"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:layout_gravity="fill_horizontal"
-            android:layout_rowWeight="1"
-            android:gravity="center"
             android:contentDescription="@string/game_piece"
-            android:translationZ="-1dp"
+            android:gravity="center"
             android:onClick="onTokenClick"
-            android:tag="28" />
+            android:tag="28"
+            android:translationZ="-1dp" />
 
         <ImageView
             android:id="@+id/redChip29"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:layout_gravity="fill_horizontal"
-            android:layout_rowWeight="1"
-            android:gravity="center"
             android:contentDescription="@string/game_piece"
-            android:translationZ="-1dp"
+            android:gravity="center"
             android:onClick="onTokenClick"
-            android:tag="29" />
+            android:tag="29"
+            android:translationZ="-1dp" />
 
         <ImageView
             android:id="@+id/redChip30"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:layout_gravity="fill_horizontal"
-            android:layout_rowWeight="1"
-            android:gravity="center"
             android:contentDescription="@string/game_piece"
-            android:translationZ="-1dp"
+            android:gravity="center"
             android:onClick="onTokenClick"
-            android:tag="30" />
+            android:tag="30"
+            android:translationZ="-1dp" />
 
         <ImageView
             android:id="@+id/redChip31"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:layout_gravity="fill_horizontal"
-            android:layout_rowWeight="1"
-            android:gravity="center"
             android:contentDescription="@string/game_piece"
-            android:translationZ="-1dp"
+            android:gravity="center"
             android:onClick="onTokenClick"
-            android:tag="31" />
+            android:tag="31"
+            android:translationZ="-1dp" />
 
         <ImageView
             android:id="@+id/redChip32"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:layout_gravity="fill_horizontal"
-            android:layout_rowWeight="1"
-            android:gravity="center"
             android:contentDescription="@string/game_piece"
-            android:translationZ="-1dp"
+            android:gravity="center"
             android:onClick="onTokenClick"
-            android:tag="32" />
+            android:tag="32"
+            android:translationZ="-1dp" />
 
         <ImageView
             android:id="@+id/redChip33"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:layout_gravity="fill_horizontal"
-            android:layout_rowWeight="1"
-            android:gravity="center"
             android:contentDescription="@string/game_piece"
-            android:translationZ="-1dp"
+            android:gravity="center"
             android:onClick="onTokenClick"
-            android:tag="33" />
+            android:tag="33"
+            android:translationZ="-1dp" />
 
         <ImageView
             android:id="@+id/redChip34"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:layout_gravity="fill_horizontal"
-            android:layout_rowWeight="1"
-            android:gravity="center"
             android:contentDescription="@string/game_piece"
-            android:translationZ="-1dp"
+            android:gravity="center"
             android:onClick="onTokenClick"
-            android:tag="34" />
+            android:tag="34"
+            android:translationZ="-1dp" />
 
         <ImageView
             android:id="@+id/redChip35"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:layout_gravity="fill_horizontal"
-            android:layout_rowWeight="1"
-            android:gravity="center"
             android:contentDescription="@string/game_piece"
-            android:translationZ="-1dp"
+            android:gravity="center"
             android:onClick="onTokenClick"
-            android:tag="35" />
+            android:tag="35"
+            android:translationZ="-1dp" />
 
         <ImageView
             android:id="@+id/redChip36"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:layout_gravity="fill_horizontal"
-            android:layout_rowWeight="1"
-            android:gravity="center"
             android:contentDescription="@string/game_piece"
-            android:translationZ="-1dp"
+            android:gravity="center"
             android:onClick="onTokenClick"
-            android:tag="36" />
+            android:tag="36"
+            android:translationZ="-1dp" />
 
         <ImageView
             android:id="@+id/redChip37"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:layout_gravity="fill_horizontal"
-            android:layout_rowWeight="1"
-            android:gravity="center"
             android:contentDescription="@string/game_piece"
-            android:translationZ="-1dp"
+            android:gravity="center"
             android:onClick="onTokenClick"
-            android:tag="37" />
+            android:tag="37"
+            android:translationZ="-1dp" />
 
         <ImageView
             android:id="@+id/redChip38"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:layout_gravity="fill_horizontal"
-            android:layout_rowWeight="1"
-            android:gravity="center"
             android:contentDescription="@string/game_piece"
-            android:translationZ="-1dp"
+            android:gravity="center"
             android:onClick="onTokenClick"
-            android:tag="38" />
+            android:tag="38"
+            android:translationZ="-1dp" />
 
         <ImageView
             android:id="@+id/redChip39"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:layout_gravity="fill_horizontal"
-            android:layout_rowWeight="1"
-            android:gravity="center"
             android:contentDescription="@string/game_piece"
-            android:translationZ="-1dp"
+            android:gravity="center"
             android:onClick="onTokenClick"
-            android:tag="39" />
+            android:tag="39"
+            android:translationZ="-1dp" />
 
         <ImageView
             android:id="@+id/redChip40"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:layout_gravity="fill_horizontal"
-            android:layout_rowWeight="1"
-            android:gravity="center"
             android:contentDescription="@string/game_piece"
-            android:translationZ="-1dp"
+            android:gravity="center"
             android:onClick="onTokenClick"
-            android:tag="40" />
+            android:tag="40"
+            android:translationZ="-1dp" />
 
         <ImageView
             android:id="@+id/redChip41"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_rowWeight="1"
             android:layout_columnWeight="1"
             android:layout_gravity="fill_horizontal"
-            android:layout_rowWeight="1"
-            android:gravity="center"
             android:contentDescription="@string/game_piece"
-            android:translationZ="-1dp"
+            android:gravity="center"
             android:onClick="onTokenClick"
-            android:tag="41" />
+            android:tag="41"
+            android:translationZ="-1dp" />
 
 
     </GridLayout>

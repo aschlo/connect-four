@@ -4,32 +4,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/coldenvironmentfog1553961"
     tools:context=".SettingsActivity">
 
     <Switch
         android:id="@+id/twoPlayerSwitch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/play_vs_computer"
+        android:onClick="onSwitchClick"
         android:padding="12dp"
+        android:text="@string/play_vs_computer"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:onClick="onSwitchClick"/>
+        app:layout_constraintStart_toStartOf="parent" />
 
     <RelativeLayout
         android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/twoPlayerSwitch"
-        >
+        app:layout_constraintTop_toBottomOf="@id/twoPlayerSwitch">
 
-    <TextView
-        android:id="@+id/playerOne"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="5dp"
-        android:text="@string/player_one_color"
-        android:layout_centerHorizontal="true" />
+        <TextView
+            android:id="@+id/playerOne"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:padding="5dp"
+            android:text="@string/player_one_color" />
     </RelativeLayout>
 
     <RadioGroup
@@ -137,19 +137,19 @@
             android:onClick="onRadioButtonClicked"
             android:text="@string/purple" />
     </RadioGroup>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/radioGroup2"
-        >
-    <Button
-        android:id="@+id/saveSettings"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/save"
-        android:layout_centerHorizontal="true"
-        android:onClick="onSaveClick"
-        />
+        app:layout_constraintTop_toBottomOf="@id/radioGroup2">
+
+        <Button
+            android:id="@+id/saveSettings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:onClick="onSaveClick"
+            android:text="@string/save" />
     </RelativeLayout>
 
 

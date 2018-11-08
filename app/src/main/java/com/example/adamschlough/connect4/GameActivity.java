@@ -17,7 +17,6 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Random;
 
@@ -78,8 +77,7 @@ public class GameActivity extends AppCompatActivity {
         TextView textView = findViewById(R.id.turnTextView);
 
         preferences = PreferenceManager.getDefaultSharedPreferences(this);
-        int firstPlayerColor = mFirstPlayer.getColor("Player One Color", this);
-        int secondPlayerColor = mSecondPlayer.getColor("Player Two Color", this);
+        int firstPlayerColor = mFirstPlayer.getPlayerOneColor("Player One Color", this);
         textView.setVisibility(View.VISIBLE);
         textView.setText(R.string.player_one_first);
         textView.setTextColor(firstPlayerColor);
@@ -108,11 +106,6 @@ public class GameActivity extends AppCompatActivity {
                 thinking = true;
                 if(!checkWinState()){
                     secondPlayer();
-                    checkWinState();
-
-                    if (checkGameOver()){
-                        showGameOver();
-                    }
                 }
             } else {
                 checkWinState();
@@ -153,8 +146,8 @@ public class GameActivity extends AppCompatActivity {
     }
 
     private boolean checkWinState(){
-        int firstColor = mFirstPlayer.getColor("Player One Color", this);
-        int secondColor = mSecondPlayer.getColor("Player Two Color", this);
+        int firstColor = mFirstPlayer.getPlayerOneColor("Player One Color", this);
+        int secondColor = mSecondPlayer.getPlayerTwoColor("Player Two Color", this);
 
         LinearLayout layout = findViewById(R.id.gameOverLayout);
         TextView textView = findViewById(R.id.winnnerText);
@@ -217,7 +210,7 @@ public class GameActivity extends AppCompatActivity {
         int position = random.nextInt(42);
 
         //Check to see if there are 3 in a row and play there if so
-        for (int i = 0; i < winningPosition.size(); i++){
+        for (int i = 0; i < winningPosition.size(); i++) {
             int[] array = winningPosition.get(i);
 
             ArrayList<Integer> positionGameStates = new ArrayList<>();
@@ -231,11 +224,14 @@ public class GameActivity extends AppCompatActivity {
             int secondPlayerTokens = Collections.frequency(positionGameStates, 1);
 
             if (positionGameStates.contains(2)) {
-                if (firstPlayerTokens == 2 && secondPlayerTokens == 0) {
-                    position = array[positionGameStates.indexOf(2)];
-                } else if (firstPlayerTokens == 3 || secondPlayerTokens == 3) {
+                if (secondPlayerTokens == 3) {
                     position = array[positionGameStates.indexOf(2)];
                     break;
+                } else if (firstPlayerTokens == 3) {
+                    position = array[positionGameStates.indexOf(2)];
+                    break;
+                } else if (firstPlayerTokens == 2 && secondPlayerTokens == 0) {
+                    position = array[positionGameStates.indexOf(2)];
                 }
             }
         }
@@ -256,6 +252,9 @@ public class GameActivity extends AppCompatActivity {
                 setToken(secondToken);
                 thinking = false;
                 checkWinState();
+                if (checkGameOver()){
+                    showGameOver();
+                }
             }
         }, 1000);
 
@@ -265,8 +264,8 @@ public class GameActivity extends AppCompatActivity {
     }
 
     private void setToken(View view){
-        int firstColor = mFirstPlayer.getColor("Player One Color", this);
-        int secondColor = mSecondPlayer.getColor("Player Two Color", this);
+        int firstColor = mFirstPlayer.getPlayerOneColor("Player One Color", this);
+        int secondColor = mSecondPlayer.getPlayerTwoColor("Player Two Color", this);
 
         ImageView playToken = (ImageView) view;
 
