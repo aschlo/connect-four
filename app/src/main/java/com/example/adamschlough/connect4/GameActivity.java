@@ -116,6 +116,7 @@ public class GameActivity extends AppCompatActivity {
 
     public void onPlayAgainClick(View view) {
         mInterstitialAd.loadAd(new AdRequest.Builder().build());
+        Log.i("add", "Ad shown");
 
         LinearLayout layout = findViewById(R.id.gameOverLayout);
         GridLayout gridLayout = findViewById(R.id.gridLayout);

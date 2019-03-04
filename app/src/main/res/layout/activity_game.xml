@@ -4,8 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/autumncolorsautumncoloursdawn1544880"
     tools:context="com.example.adamschlough.connect4.GameActivity">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha=".8"
+        android:background="@drawable/autumncolorsautumncoloursdawn1544880">
+    </android.support.constraint.ConstraintLayout>
 
     <LinearLayout
         android:id="@+id/gameOverLayout"
